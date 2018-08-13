@@ -172,8 +172,8 @@ If this causes problems for you, you may want to try changing your terminal's co
 ###TOTO: multi lang
 
 ##Features:
-- [x] customer sign-in sheet
-- [x] validate input
-- [x] write test
-- [o] create account
-- [o] create customer info
+- [] customer sign-in sheet
+- [] validate input
+- [] write test
+- [x] create account
+- [x] create customer info
