@@ -1,11 +1,27 @@
 {
-  "name": "customer",
+  "name": "react-native-customer-sign-in-sheet",
   "version": "0.1.0",
   "private": true,
+  "repository": "git@github.com:faneder/react-native-customer-sign-in-sheet",
+  "authors": [
+    {
+      "name": "Eder Fan",
+      "email": "fanedercode@gmail.com"
+    }
+  ],
+  "keywords": [
+    "react",
+    "react-native",
+    "redux",
+    "redux-thunk",
+    "firebase"
+  ],
+  "bugs": "https://github.com/faneder/tax-au/issues",
   "devDependencies": {
     "jest-expo": "~27.0.0",
     "react-native-scripts": "1.14.0",
-    "react-test-renderer": "16.3.1"
+    "react-test-renderer": "16.3.1",
+    "redux-logger": "^3.0.6"
   },
   "main": "./node_modules/react-native-scripts/build/bin/crna-entry.js",
   "scripts": {
@@ -20,10 +36,13 @@
   },
   "dependencies": {
     "expo": "^27.0.1",
-    "firebase": "^5.3.0",
+    "firebase": "^5.3.1",
     "react": "16.3.1",
     "react-native": "~0.55.2",
+    "react-native-communications": "^2.2.1",
+    "react-native-router-flux": "^4.0.0-beta.43",
     "react-redux": "^5.0.7",
-    "redux": "^4.0.0"
+    "redux": "^4.0.0",
+    "redux-thunk": "^2.3.0"
   }
 }

@@ -1,31 +1,32 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux';
+import reduxThunk from 'redux-thunk';
 import { StyleSheet, Text, View } from 'react-native';
-import reducers from './reducers';
+import reducers from './src/reducers';
 import firebase from 'firebase';
 import firebaseConfig from './config/firebaseConfig';
-import LoginForm from './src/components/LoginForm';
+import RouterComponent from './src/Router';
 
-// const store = createStore(reducers, {}, applyMiddleware(ReduxThunk));
+const middlewares = [reduxThunk];
+
+if (process.env.NODE_ENV === `development`) {
+  const { logger } = require(`redux-logger`);
+
+  middlewares.push(logger);
+}
+
+const store = compose(applyMiddleware(...middlewares))(createStore)(reducers);
 
 export default class App extends React.Component {
   componentWillMount() {
     firebase.initializeApp(firebaseConfig);
-
-    // firebase.auth().onAuthStateChanged((user) => {
-    //   if (user) {
-    //     this.setState({ loggedIn: true });
-    //   } else {
-    //     this.setState({ loggedIn: false });
-    //   }
-    // });
   }
 
   render() {
     return (
-      <Provider store={createStore(reducers)}>
-        <LoginForm />
+      <Provider store={store}>
+        <RouterComponent />
       </Provider>
     );
   }
